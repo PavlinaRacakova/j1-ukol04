@@ -5,13 +5,16 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Třída pro losování Sportky.
+ * Třída pro losování Sportky.  a
  */
 public class Sportka {
   private final List<Integer> osudi = new ArrayList<>();
 
   public Sportka() {
     //TODO naplnit osudí čísly 1 až 49.
+    for (int i = 0; i < 49; i++) {
+      osudi.add(i + 1);
+    }
   }
 
   /**
@@ -21,6 +24,7 @@ public class Sportka {
    */
   public void zamichat() {
     //TODO zamíchat osudí
+    Collections.shuffle(osudi);
   }
 
   /**
@@ -31,8 +35,11 @@ public class Sportka {
    * @see List#subList(int, int)
    */
   public List<Integer> vylosovanaCisla() {
-    //TODO Vrátit seznam prvních 6 čísel z osudí.
-    return null;
+    List<Integer> vylosovanaCisla = new ArrayList<>(6);
+    for (int i = 0; i < 6; i++) {
+      vylosovanaCisla.add(osudi.get(i));
+    }
+    return vylosovanaCisla;
   }
 
   /**
@@ -41,7 +48,6 @@ public class Sportka {
    * @return Dodatkové číslo.
    */
   public Integer dodatkoveCislo() {
-    //TODO Vrátit sedmé číslo z osudí.
-    return null;
+    return osudi.get(6);
   }
 }
